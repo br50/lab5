@@ -4,12 +4,40 @@
 <head>
 	<title>My HCI Friends</title>	
 	<meta charset="utf-8">
-	
+	<!-- vieport meta -->
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<!-- Adding js files from public/js/... -->
+	<script src = "js/jquery-1.11.0.js"></script>
+	<script src = "js/bootstrap.js"></script>
+	<script src = "js/hci-friends.js"></script>
+	<!-- Adding CSS links -->
+	<link href = "css/bootstrap.css" rel = "stylesheet">
+	<link href = "css/bootstrap-theme.css" rel = "stylesheet">
+	<link href = "css/hci-friends.css" rel = "stylesheet">
 </head>
 
 <body>
+	<div class = "container">
 	<h1>My HCI Friends</h1>
+	<!-- #each block for data.json access -->
+	{{#each friends}}
+	<div class = "friend">
+		<!-- added image class with img-responsive and img-rounded to scale -->
+		<img class = "img-responsive img-rounded" src = "{{imageURL}}">
+		<a href="#">
+			<h2>{{name}}</h2>
+		</a>
+		<p>{{description}}</p>
+		<hr>
+	</div>
+	{{/each}}
 
+	<!-- Hardcoded sample block for div syntax (keep or remove?) -->
+	<div class = "friend">
+		<img class = "img-responsive img-rounded" src = "https://loremflickr.com/500/500/girl?lock=1424" />
+		<h2>Harriet Do</h2>
+		<p>I like dogs and I think I'm a pretty cute Asian.</p>
+	</div>
 	<form id="addFriendForm" role="form" method="get" action="/add">
 		<h3>Add a friend</h3>
 	    <div class="form-group">
@@ -22,5 +50,9 @@
 	    </div>
 	    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the friend"></input>
 	</form>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JS plugins) -->
+	<script src = "https://code.jquery.com/jquery.js"></script>
 </body>
 </html>

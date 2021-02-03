@@ -10,7 +10,23 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+	// name click listener declaration
+	$("a h2").click(nameClick);
 }
+
+/*
+ * function called when name is clicked
+ */
+function nameClick(e) {
+
+	e.preventDefault();
+	console.log($(this).text());
+	// identify current name in string, then calls text() function,
+	// inside, anagrammedName is called with current name, outputs
+	// anagram, passed to argument of text() function.
+	$(this).text(anagrammedName($(this).text()))
+}
+
 
 function anagrammedName(name) {
 	// Thanks, Internet Anagram Server!
